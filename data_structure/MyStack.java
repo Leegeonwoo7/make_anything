@@ -51,6 +51,9 @@ public class MyStack {
 	}
 	
 	public void printAll() {
+		if(isEmpty()) {
+			System.out.println("메모리가 비어있습니다.");
+		}
 		System.out.print("[ ");
 		for(int num : myStack) {
 			System.out.print(num + " ");
