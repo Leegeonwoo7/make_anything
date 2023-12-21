@@ -13,6 +13,10 @@ public class MyStackTest {
 		myStack.pop();
 		myStack.printAll();
 		myStack.pop();
+		myStack.push(4);
+		System.out.println(myStack.serch(0));
+		myStack.printAll();
+		
 		
 	}
 }

@@ -35,6 +35,13 @@ public class MyStack {
 		
 	}
 	
+	public int serch(int index) {
+		if(isEmpty()) {
+			System.out.println("메모리가 비어있습니다.");
+		}
+		return myStack[index];
+	}
+	
 	public boolean isEmpty() {
 		return (index == -1);
 	}
