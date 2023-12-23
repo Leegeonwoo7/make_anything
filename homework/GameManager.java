@@ -13,7 +13,7 @@ public class GameManager {
 	
 	public void playGame() {
 		String betting;
-		int choice;
+		int user;
 		
 		while(player.getMoney() > 0) {
 			System.out.println("배팅 금액을 입력하세요: (그만하시려면 Q를 입력하세요)");
@@ -30,16 +30,19 @@ public class GameManager {
 			
 			do {
 				System.out.println("가위(1) 바위(2) 보(3) 입력: ");
-				choice = sc.nextInt();
-				if(choice < 1 || choice > 3) {
+				user = sc.nextInt();
+				if(user < 1 || user > 3) {
 					System.out.println("1~3중에 선택하셔야 합니다.");
 				}
-			}while(choice < 1 || choice > 3);
+			}while(user < 1 || user > 3);
 			
 			int computer = (int)(Math.random() * 3 + 1);
-			//비교메서드
+			compare(computer, user, Integer.parseInt(betting));
+			System.out.println("남은 돈: " + player.getMoney() + "\n");
 		}
+		System.out.println("가지고 있는 돈: " + player.getMoney());
 	}
+	
 	
 	public void compare(int computer, int user, int betAmount) {
 		if(computer == user) {
