@@ -2,6 +2,8 @@ package report;
 
 import java.util.ArrayList;
 
+import grade.GradeEvaluation;
+import grade.MajorEvaluation;
 import school.School;
 import school.Score;
 import school.Student;
@@ -54,7 +56,7 @@ public class GenerateGradeReport {
 		ArrayList<Score> scoreList = student.getScoreList();
 		int majorId = student.getMajorSubject().getSubjectId();
 		
-		GradeEvaluation[] gradeEvaluation = {new BasicEvalution(), new MajorEvaluation()};
+		GradeEvaluation[] gradeEvaluation = {new BasicEvaluation(), new MajorEvaluation()};
 		
 		for(int i=0; i<scoreList.size(); i++) {
 			Score score = scoreList.get(i);
