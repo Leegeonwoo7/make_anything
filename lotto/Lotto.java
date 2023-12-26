@@ -16,8 +16,17 @@ public class Lotto {
 			}
 		}
 		
-		
-
+		for (int i = 0; i < lotto.length - 1; i++) {
+		    int minIndex = i;
+		    for (int j = i + 1; j < lotto.length; j++) {
+		        if (lotto[j] < lotto[minIndex]) {
+		            minIndex = j;
+		        }
+		    }
+		    int tmp = lotto[i];
+		    lotto[i] = lotto[minIndex];
+		    lotto[minIndex] = tmp;
+		}
+	
 	}
-
 }
