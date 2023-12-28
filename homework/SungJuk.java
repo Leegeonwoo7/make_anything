@@ -5,9 +5,60 @@ import java.util.Scanner;
 public class SungJuk {
 
 	public static void main(String[] args) {
+		Scanner sc = new Scanner(System.in);
+		int count;
 		
-	}
+		System.out.print("인원수 입력: ");
+		count = sc.nextInt();
+		
+		String[] name = new String[count];
+		int subjectCount;
+		
+		String[][] subject = new String[count][];
+		int[][] score = new int[count][];
+		double[] avg = new double[count];
+		
+		for(int i=0; i<name.length; i++) {
+			System.out.print("이름 입력: ");
+			name[i] = sc.next();
+			
+			System.out.print("과목수 입력: ");
+			subjectCount = sc.nextInt();
+			
+			subject[i] = new String[subjectCount];
+			for(int j=0; j<subjectCount; j++) {
+				System.out.print("과목명 입력: ");
+				subject[i][j] = sc.next();
+			}
+			
+			score[i] = new int[subjectCount+1];
+			for(int j=0; j<subjectCount; j++) {
+				System.out.print(subject[i][j] + "점수 입력: ");
+				score[i][j] = sc.nextInt();
+				
+				score[i][subjectCount] += score[i][j];
+			}
+			
+			avg[i] = (double)score[i][subjectCount] / subjectCount;
+		}
+		
+		System.out.println();
+		for(int i=0; i<count; i++) {
+			System.out.print("이름\t");
+			for(int j=0; j<subject[i].length; j++) {
+				System.out.print(subject[i][j] + "\t");
+			}
+			System.out.println("총점\t평균");
+			System.out.print(name[i] + "\t");
+			for(int j=0; j<score[i].length; j++) {
+				System.out.print(score[i][j] + "\t");
+			}
+			System.out.println(String.format("%.2f", avg[i]));
+			System.out.println();
+		}
+    }
 }
+
 
 /*
  인원수를 입력하여 인원수만큼 데이터를 입력받고 총점과 평균을 구하시오
