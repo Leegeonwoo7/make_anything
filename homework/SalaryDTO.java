@@ -32,8 +32,6 @@ public class SalaryDTO {
 	
 	public void printInfo() {
 		DecimalFormat df = new DecimalFormat();
-		
-		System.out.println("이름\t직급\t기본급\t수당\t합계\t세율\t월급");
 		System.out.println(name + "\t" + 
 							job + "\t" + 
 							df.format(basic) + "\t" + 
