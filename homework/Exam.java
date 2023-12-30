@@ -8,7 +8,7 @@ public class Exam {
 	private String name;
 	private String dap;
 	private int score;
-	private char[] ox = new char[5];
+	private char[] ox = new char[JUNG.length()];
 	
 	public Exam() {
 		Scanner sc = new Scanner(System.in);
@@ -39,6 +39,4 @@ public class Exam {
 		}
 		System.out.println("\t" + score);
 	}
-	
-
 }
