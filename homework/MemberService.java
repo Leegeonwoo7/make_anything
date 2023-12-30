@@ -68,7 +68,29 @@ public class MemberService { //일처리
 	}
 
 	public void update() {
-
+		Scanner sc = new Scanner(System.in);
+		int serch = -1;
+		
+		System.out.print("해당고객의 핸드폰번호 입력: ");
+		String phoneNum = sc.next();
+		
+		for(int i=0; i<index; i++) {
+			if(arr[i].getPhone().equals(phoneNum)) {
+				serch = i;
+			}
+		}
+		
+		if(serch == -1) {
+			System.out.println("해당 번호의 회원이 없습니다.");
+			return;
+		}
+		
+		System.out.print("수정 할 이름 입력: ");
+		arr[serch].setName(sc.next());
+		System.out.print("수정 할 핸드폰 입력: ");
+		arr[serch].setPhone(sc.next());
+		System.out.print("수정 할 주소 입력: ");
+		arr[serch].setAddress(sc.next());
 	}
 
 	public void delete() {
