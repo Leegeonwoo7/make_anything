@@ -88,6 +88,8 @@ public class MemberService { //일처리
 		
 		System.out.print("수정 할 이름 입력: ");
 		arr[serch].setName(sc.next());
+		System.out.print("수정 할 나이 입력: ");
+		arr[serch].setAge(sc.nextInt());
 		System.out.print("수정 할 핸드폰 입력: ");
 		arr[serch].setPhone(sc.next());
 		sc.nextLine();
@@ -96,11 +98,22 @@ public class MemberService { //일처리
 	}
 
 	public void delete() {
+		Scanner sc = new Scanner(System.in);
+		System.out.print("핸드폰 번호 입력: ");
+		String delPhone = sc.next();
 		
+		int delIndex = -1;
+		
+		for(int i=0; i<index; i++) {
+			if(arr[i].getPhone().equals(delPhone)) {
+				delIndex = i;
+			}
+		}
+		arr[delIndex] = null;
 	}
 	
 	private boolean isFull() {
-		if(index == arr.length-1) {
+		if(index == arr.length) {
 			return true;
 		}else {
 			return false;
