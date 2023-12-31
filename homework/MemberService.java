@@ -11,13 +11,13 @@ public class MemberService { //일처리
 		
 		while(true) {
 			System.out.println("************");
-			System.out.println("\t1. 가입");
-			System.out.println("\t2. 출력");
-			System.out.println("\t3. 수정");
-			System.out.println("\t4. 탈퇴");
-			System.out.println("\t5. 끝내기");
+			System.out.println("1. 가입");
+			System.out.println("2. 출력");
+			System.out.println("3. 수정");
+			System.out.println("4. 탈퇴");
+			System.out.println("5. 끝내기");
 			System.out.println("************");
-			System.out.print("\t번호: ");
+			System.out.print("번호: ");
 			int input = sc.nextInt();
 			
 			if(input == 5) break;
@@ -44,8 +44,9 @@ public class MemberService { //일처리
 			int age = sc.nextInt();
 			System.out.print("핸드폰 입력: ");
 			String phone = sc.next();
+			sc.nextLine();
 			System.out.print("주소 입력: ");
-			String address = sc.next();
+			String address = sc.nextLine();
 			
 			MemberDTO member = new MemberDTO();
 			member.setName(name);
@@ -58,12 +59,12 @@ public class MemberService { //일처리
 	}
 	
 	public void list() {
-		System.out.println("이름\t나이\t핸드폰\t주소");
+		System.out.println("이름\t나이\t핸드폰\t\t주소");
 		for(int i=0; i<index; i++) {
 			System.out.print(arr[i].getName()+"\t");
 			System.out.print(arr[i].getAge()+"\t");
 			System.out.print(arr[i].getPhone()+"\t");
-			System.out.print(arr[i].getAddress()+"\t");
+			System.out.println(arr[i].getAddress()+"\t");
 		}
 	}
 
@@ -89,12 +90,13 @@ public class MemberService { //일처리
 		arr[serch].setName(sc.next());
 		System.out.print("수정 할 핸드폰 입력: ");
 		arr[serch].setPhone(sc.next());
+		sc.nextLine();
 		System.out.print("수정 할 주소 입력: ");
-		arr[serch].setAddress(sc.next());
+		arr[serch].setAddress(sc.nextLine());
 	}
 
 	public void delete() {
-
+		
 	}
 	
 	private boolean isFull() {
