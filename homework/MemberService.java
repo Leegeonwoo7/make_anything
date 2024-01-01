@@ -3,7 +3,7 @@ package homework;
 import java.util.Scanner;
 
 public class MemberService { //일처리
-	private MemberDTO[]	arr = new MemberDTO[5];
+	private MemberDTO[]	arr = new MemberDTO[2];
 	private int index = 0;
 	
 	public void menu() {
@@ -20,7 +20,10 @@ public class MemberService { //일처리
 			System.out.print("번호: ");
 			int input = sc.nextInt();
 			
-			if(input == 5) break;
+			if(input == 5) {
+				System.out.println("프로그램 종료");
+				break;
+			}
 			else if(input == 1) {
 				insert();
 			}else if(input == 2) {
@@ -36,7 +39,7 @@ public class MemberService { //일처리
 	public void insert() {
 		Scanner sc = new Scanner(System.in);
 		if(isFull()) {
-			System.out.println("5명의 정원이 꽉 찼습니다.");
+			System.out.println(arr.length + " 명의 정원이 꽉 찼습니다.");
 		} else {
 			System.out.print("이름 입력: ");
 			String name = sc.next();
@@ -55,16 +58,26 @@ public class MemberService { //일처리
 			member.setAddress(address);
 			
 			arr[index++] = member;
+			System.out.println("1 row(s) created");
+			
+			
 		}
 	}
 	
 	public void list() {
 		System.out.println("이름\t나이\t핸드폰\t\t주소");
+		
+		if(isEmpty()) {
+			System.out.println("회원내역이 없습니다.");
+			return;
+		}
 		for(int i=0; i<index; i++) {
+			if(arr[i] != null) {
 			System.out.print(arr[i].getName()+"\t");
 			System.out.print(arr[i].getAge()+"\t");
 			System.out.print(arr[i].getPhone()+"\t");
 			System.out.println(arr[i].getAddress()+"\t");
+			}
 		}
 	}
 
@@ -95,6 +108,9 @@ public class MemberService { //일처리
 		sc.nextLine();
 		System.out.print("수정 할 주소 입력: ");
 		arr[serch].setAddress(sc.nextLine());
+		
+		System.out.println("1 row(s) updated");
+		
 	}
 
 	public void delete() {
@@ -109,11 +125,25 @@ public class MemberService { //일처리
 				delIndex = i;
 			}
 		}
+		if(delIndex == -1) {
+			System.out.println("찾는 회원이 없습니다.");
+		}
 		arr[delIndex] = null;
+		System.out.println("1 row deleted");
 	}
+	
+	
 	
 	private boolean isFull() {
 		if(index == arr.length) {
+			return true;
+		}else {
+			return false;
+		}
+	}
+	
+	private boolean isEmpty() {
+		if(index != arr.length) {
 			return true;
 		}else {
 			return false;
